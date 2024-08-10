@@ -13,12 +13,17 @@ html,
 body {
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
 @layer components {
+  .navbar-trans{
+    @apply sticky
+  }
   .nav-links{
-    @apply text-brand-dark dark:text-indigo-100 block mt-4 lg:inline-block lg:mt-0  mr-8 hover:text-brand-light hover:underline hover:underline-offset-8 dark:hover:text-indigo-300;
+    @apply text-brand-dark dark:text-indigo-100 block mt-4 lg:inline-block lg:mt-0  mr-8  hover:underline hover:underline-offset-8;
   }
   .doc-btn{
     @apply px-6 py-3 rounded-xl border-gray-700 border font-semibold text-brand-dark dark:border-gray-400 dark:text-brand-white hover:border-indigo-500 hover:text-indigo-400 dark:hover:border-gray-50 dark:hover:text-white shadow-md;
@@ -28,6 +33,9 @@ body {
   }
   .badge{
     @apply m-2 px-3 py-1.5 bg-indigo-200 dark:bg-slate-600 text-brand-dark dark:text-slate-200 rounded-xl text-sm font-medium
+  }
+  .pill-box{
+    @apply px-4 py-2 mx-2 border rounded-3xl shadow-2xl text-violet-600 border-violet-500 dark:text-violet-300 dark:border-violet-400
   }
 } 
 
@@ -46,4 +54,13 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+
+.glassmorphism {
+  background: rgba(8, 116, 239, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }

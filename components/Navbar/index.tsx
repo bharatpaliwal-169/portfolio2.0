@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from 'next/image'
 import Link from 'next/link'
-import { Tilt } from "react-tilt";
+
 
 import {data} from "@/constants/SiteData";
 
@@ -17,12 +17,9 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
 
   const handleThemeChange = () => {
-    // console.log(theme);
     setDarkMode(!darkMode)
-
     setTheme(!darkMode ? "light" : "dark");
   }
-  
 
   useEffect(() => {
     setMounted(true);
@@ -34,14 +31,15 @@ const Navbar = () => {
 
   return(
     <>
-      <header className='container mx-auto p-2'>
+      <header className='px-24 mx-auto p-2 navbar-trans'>
         <nav className="flex items-center justify-between flex-wrap">
           {/* brand */}
           <div className="flex items-center flex-shrink-0 mr-3 lg:mr-16">
             <Link href="/">
-              <Image src='/assets/B.png' className="w-auto mr-2 select-none dark:bg-slate-300 rounded-xl" alt="Logo" width={80} height={80} />
+              <h1 className="font-extrabold text-[32px] text-brand-dark dark:text-brand-light">BP.</h1>
             </Link>
           </div>
+
           {/* ham button */}
           <div className="block lg:hidden">
             <button
@@ -66,11 +64,13 @@ const Navbar = () => {
 
             </button>
           </div>
+
           {/* links */}
           <div
             className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
           >
             <div className="text-sm lg:flex-grow lg:items-center">
+              <span className="inline-block mx-[12%]"></span>
               {
                 data.navLinksMap.map(item => {
                   return(
@@ -82,6 +82,7 @@ const Navbar = () => {
               }
 
             </div>
+
             {/* login/signup */}
             <div className='inline-flex items-center'>
               <button className='ms-8 rounded-full hover:shadow-lg dark:hover:shadow-lg' onClick={handleThemeChange}>
@@ -90,11 +91,8 @@ const Navbar = () => {
                   :
                   <Image src="/assets/sun.svg" alt="light" className='p-2 h-12 w-12 hover:bg-indigo-300 rounded-full' width={12} height={12} />
                 }
-              </button>
-
-              <Tilt options={{max:25, scale:1.1 , speed:900,reset:true , }}>
-                <Image src="/assets/Avatar.svg" alt="avatar" className="p-2 object-cover w-16 h-16 rounded-full" width={32} height={32} />
-              </Tilt>
+              </button>              
+              <Image src="/assets/Avatar.svg" alt="avatar" className="mx-2 object-cover w-12 h-12 rounded-full" width={24} height={24} />
             </div>
           </div>
         </nav>

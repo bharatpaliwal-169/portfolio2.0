@@ -12,12 +12,12 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Bharat Paliwal",
+  title: "Bharat | Portfolio",
   description: "Bharat Paliwal Protfolio website",
   other: {
     "og:type": "website",
     'theme-color': '#',
-    "color-scheme": "dark",
+    "color-scheme": "light",
     "twitter:image": '',
     "twitter:card": "summary_large_image",
     "og:url": "https://bharat-paliwal.versel.app",

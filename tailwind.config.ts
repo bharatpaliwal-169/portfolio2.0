@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,7 +25,9 @@ const config: Config = {
         "brand-dark": "#302b70",
         "brand-gray": "#6D6D6D",
         "brand-regular": "#6061b0",
-        "brand-light": "#787cd1"
+        "brand-light": "#787cd1",
+        "brand-logo": "#7404B4",
+        "pill-b" : "#a48fff1f"
       },
     },
   },
