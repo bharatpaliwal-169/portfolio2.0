@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto } from 'next/font/google'
+import { Playfair_Display } from 'next/font/google'
 import Providers from './Provider';
 import "./globals.css";
 
 
-const roboto = Roboto({
+const PlayFair = Playfair_Display({
   weight: ['400','500','700','900'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={PlayFair.className}>
         <Providers>
           {children}
         </Providers>

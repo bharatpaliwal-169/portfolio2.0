@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,19 +13,21 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Playfair Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 
 @layer components {
-  .navbar-trans{
-    @apply sticky
-  }
+
   .nav-links{
-    @apply text-brand-dark dark:text-indigo-100 block mt-4 lg:inline-block lg:mt-0  mr-8  hover:underline hover:underline-offset-8;
+    @apply text-RichBlack dark:text-offWhite block mt-4 lg:inline-block lg:mt-0  mr-8  md:hover:underline md:hover:underline-offset-8;
   }
+  .brandLogo{
+    @apply font-extrabold text-lg text-brand-dark dark:text-AliceBlue
+  }
+
   .doc-btn{
     @apply px-6 py-3 rounded-xl border-gray-700 border font-semibold text-brand-dark dark:border-gray-400 dark:text-brand-white hover:border-indigo-500 hover:text-indigo-400 dark:hover:border-gray-50 dark:hover:text-white shadow-md;
   }
@@ -35,7 +38,43 @@ body {
     @apply m-2 px-3 py-1.5 bg-indigo-200 dark:bg-slate-600 text-brand-dark dark:text-slate-200 rounded-xl text-sm font-medium
   }
   .pill-box{
-    @apply px-4 py-2 mx-2 border rounded-3xl shadow-2xl text-violet-600 border-violet-500 dark:text-violet-300 dark:border-violet-400
+    @apply inline-flex px-2 py-1 mx-1 border rounded-3xl shadow-2xl  border-violet-500 dark:text-violet-200 dark:border-violet-300
+  }
+
+  .pill-text{
+    @apply font-semibold text-[#7C04FC] text-xs dark:text-violet-300 
+  }
+
+
+
+  .social-media-div {
+    @apply text-[2em];
+  }
+  .icon-button i {
+    @apply text-[white] cursor-pointer inline-block text-[1.3rem] h-[2.6rem] leading-[2.6rem] relative text-center select-none w-[2.6rem] mb-2.5 mx-[5px] my-0 rounded-[2.6rem];
+  }
+  .icon-button {
+    @apply mb-2.5;
+  }
+  .icon-button i {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  .linkedin i {
+    @apply bg-[#0e76a8] transition-all duration-[0.2s] ease-[ease-in-out] hover:text-white hover:shadow-[0_5px_15px_#0e76a8];
+  }
+  .github i {
+    @apply bg-[#333] transition-all duration-[0.2s] ease-[ease-in-out] hover:text-white hover:shadow-[0_5px_15px_#fff];
+  }
+  .twitter i {
+    @apply bg-[#1da1f2] transition-all duration-[0.2s] ease-[ease-in-out] hover:text-white hover:shadow-[0_5px_15px_#1da1f2];
+  }
+  .instagram i {
+    @apply bg-[#e4405f] transition-all duration-[0.2s] ease-[ease-in-out] hover:text-white hover:shadow-[0_5px_15px_#e4405f];
+  }
+  .google i {
+    @apply bg-[#ea4335] transition-all duration-[0.2s] ease-[ease-in-out] hover:text-white hover:shadow-[0_5px_15px_#ea4335];
   }
 } 
 
@@ -64,3 +103,43 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+
+.wave {
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.1s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+

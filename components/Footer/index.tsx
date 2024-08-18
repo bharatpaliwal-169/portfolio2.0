@@ -7,16 +7,16 @@ const Footer = () => {
   const year = new Date().getFullYear();
   
   return (
-    <footer className="container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
+    <footer className="text-xs container flex flex-col items-center justify-between p-6 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
         <Link href="/" rel="noreferrer noopener">
-          <h1 className="text-md text-gray-600 dark:text-gray-300">{data.brandName}</h1>
+          <h1 className="text-gray-600 dark:text-gray-300">{data.brandName}</h1>
         </Link>
         
-        <p className="text-xm text-gray-600 dark:text-gray-300">
+        <p className=" text-gray-600 dark:text-gray-300">
           {`© Copyright ${year}. All Rights Reserved.`}
         </p>
         
-        <div className="flex -mx-2">
+        <div className="flex mx-2">
           <Link
             href={socialLinks.github}
             target="_blank"

@@ -1,7 +1,11 @@
 
 const Projects = () => {
   return (
-    <div>Projects</div>
+    <>
+      <section className="grid grid-cols-1 md-grid-cols-12 gap-0">
+        
+      </section>
+    </>
   )
 }
 

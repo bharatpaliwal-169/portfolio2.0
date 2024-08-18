@@ -6,7 +6,7 @@ const layout = ({children}: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
-    <main className='bg-indigo-200 dark:bg-slate-700 dark:text-brand-white antialiased'>
+    <main className='bg-AliceBlue text-RichBlack dark:bg-DarkSlateGray dark:text-offWhite antialiased'>
       <Navbar />
         {children}
       <Footer />
