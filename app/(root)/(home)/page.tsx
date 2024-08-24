@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-12 gap-0 ">
-        <div className="col-span-12 md:col-span-6 md:col-start-2 p-4">
+        <div className="col-span-12 md:col-span-6 md:col-start-2 p-4 md:my-4">
           <div className='pill-box'>
             <SparklesIcon className="text-violet-500  dark:text-violet-300 text-[12px] h-[1.5rem] w-[1.5rem] mr-1 "/>
             <h1 className='pill-text'>
@@ -64,7 +64,7 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className="col-span-12 md:col-span-4 p-4">
+        <div className="col-span-12 md:col-span-4 p-4 md:my-4">
           <Image src='/assets/heroBanner.svg' alt="HeroBanner" width={500} height={500} />
         </div>
       </section>

@@ -10,17 +10,18 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
-    "bootstrap-icons": "^1.11.3",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "react-vertical-timeline-component": "^3.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-vertical-timeline-component": "^3.3.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

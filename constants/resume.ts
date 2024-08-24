@@ -1,3 +1,4 @@
+import { BriefcaseIcon } from "@heroicons/react/24/outline"; 
 export const projectList = [
   {
     title : 'Memofeed : A social media webapp',
@@ -200,3 +201,60 @@ export const certificates = [
   }
   
 ];
+
+
+export const experience = [
+  {
+    title : "Senior Software Engineer",
+    companyName : "TechM Comviva Technologies",
+    startDate : "August 2023 - Present",
+    points : [
+      "Enhanced product features and functionalities, deployed 10+ new features to production in past six months, up-scaled product to handle 10M+ users.", 
+      "Additional responsibilities include microservice architecture optimizations, documentation, overall product management, scaling and building new APIs.",
+      "Rigorously enhanced application UI, improved security and performance.",
+      "International Client handling, overall product management, working in coordination with multiple team.",
+    ],
+    icon : BriefcaseIcon,
+  },
+  {
+    title : "Product Development Engineer",
+    companyName : "TechM Comviva Technologies",
+    startDate : "August 2022 - August 2023",
+    points : [
+      "Improved existing web portals to provide better user experience and resolved existing UI bugs.",
+      "Build new schedulers and automated the process of handling failures of Batch processing and upgrade existing transactional functionalities. ",
+      "Improved caching and database operations with enhanced error handling.", 
+      "Worked on overall improvement and implementation of SDLC standards across multiple products. ",
+    ]
+  },
+  {
+    title : "Product Development Intern",
+    companyName : "TechM Comviva Technologies",
+    startDate : "January 2022 - July 2022",
+    points : [
+      "Built reusable UI components and an internal project.  ",
+      "Worked on database handling and microservice architecture. ", 
+      "Built reusable UI components and an internal project. ",
+    ]
+  },
+  {
+    title : "Backend Developer",
+    companyName : "SpotRental Pvt Ltd",
+    startDate : "July 2021 - August 2021",
+    points : [
+      "I was assigned with the tasks to build and deploy multiple static websites for their products and services.",
+      "During the internship tenure, I explored basics of both frontend and backend development. ", 
+      "I also explored the best practices required to improve SEO scores and build PWA applications.",
+    ]
+  },
+  {
+    title : "Frontend Developer",
+    companyName : "KeywordsFly Pvt Ltd",
+    startDate : "August 2021 - September 2021",
+    points : [
+      "I used functional components and css frameworks to build complex UI and improved UX of given tasks. ",
+      "I explored react.js and its application in variety of application assignments given during this period.",
+      "I had a good experience with how we work and coordinate as a team and build projects within given deadlines. ", 
+    ]
+  },
+]

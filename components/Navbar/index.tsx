@@ -67,14 +67,16 @@ const Navbar = () => {
             <div className="text-sm lg:flex-grow lg:items-center">
               <span className="inline-block"></span>
               {
-                data.navLinksMap.map(item => {
+                data.navLinksMap.map((item,index) => {
                   return(
-                    <>
-                      <Link href={item._url} className="lg:inline-flex nav-links capitalize" key={item.name}>
+                    
+                    <Link href={item._url}  key={index}>
+                      <div className="lg:inline-flex nav-links capitalize">
                         <item.icon className="h-[2rem] w-[2rem] mr-1" />
                         <h1 className="">{item.name}</h1>
-                      </Link>
-                    </>
+                      </div>
+                    </Link>
+                  
                   )
                 })
               }
