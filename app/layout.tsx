@@ -14,7 +14,24 @@ const PlayFair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Bharat | Portfolio",
   description: "Bharat Paliwal Protfolio website",
-  other: {
+  generator: "Next.js",
+  manifest: "/manifest.json",
+  keywords: ["nextjs", "next14", "pwa", "next-pwa"],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
+  authors: [
+    {
+      name: "Bharat Paliwal",
+      url: "https://twitter.com/softinstaa",
+    },
+  ],
+  viewport:
+    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
+  icons: [
+    { rel: "apple-touch-icon", url: "/assets/brandLogo.png" },
+    { rel: "icon", url: "/assets/brandLogo.png" },
+  ],
+
+    other: {
     "og:type": "website",
     'theme-color': '#',
     "color-scheme": "light",
@@ -24,6 +41,7 @@ export const metadata: Metadata = {
     "og:image": '',
   }
 };
+
 
 export default function RootLayout({
   children,
