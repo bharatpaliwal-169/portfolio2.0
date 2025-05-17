@@ -138,8 +138,8 @@ export  const stackLinks = [
 export const socialLinks = {
   github : 'https://github.com/bharatpaliwal-169',
   linkedin : 'https://www.linkedin.com/in/bharatpaliwal231/',
-  twitter : 'https://twitter.com/softinstaa',
-  instagram : 'https://www.instagram.com/softinstaa/',
+  twitter : 'https://x.com/BharatPaliwal23',
+  instagram : 'https://www.instagram.com/_bharat_231/',
   gmail : 'paliwalbdevop@gmail.com'
 };
 
