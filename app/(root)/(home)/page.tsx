@@ -25,17 +25,17 @@ const Landing = () => {
             </h2>
 
             <section className="text-lg">
-              <h3 className="text-xl">
+              <h3 className="text-xl mb-4">
                 This is <span className=" text-[#7C04FC] dark:text-violet-500 font-semibold">{appData.heroName}</span>
               </h3>
 
               <Typewriter words={
                   [
-                    "Full-Time Software Engineer",
-                    "Part-Time fullStack dev",
-                    "Passionate Reader",
-                    "Knows how to cook",
-                    "Loves playing games"
+                    "Senior Software Engineer @Comviva",
+                    "MERN/Java SpringBoot developer",
+                    "Sports Enthusiast",
+                    "Passionate Book Reader",
+                    "Comfort Food Lover",
                   ]
                 }
                 loop = {true}

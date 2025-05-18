@@ -9,5 +9,6 @@ export const appData = {
   linkedInDesp2 : "profile.",
   workExperience : "Work Experience",
   workExDesp : "I have total working experience of 3+ years",
-
+  education : "Education",
+  eduDesp : "Following is my educational background"
 }

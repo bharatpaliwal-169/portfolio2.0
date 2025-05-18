@@ -258,3 +258,30 @@ export const experience = [
     ]
   },
 ]
+
+export const education = [
+  {
+    id: 1,
+    degree: 'Bachelor of Technology (B.Tech)',
+    field: 'Electronics & Communication Engineering',
+    institution: 'The LNM Institute of Information Technology (LNMIIT)',
+    year: '2018 - 2022',
+    grade: 'CGPA: 7.0/10',
+  },
+  {
+    id: 2,
+    degree: 'Higher Secondary Education',
+    field: 'Science (PCM)',
+    institution: 'All Saints School, Ajmer',
+    year: '2016 - 2018',
+    grade: 'Percentage: 85%'
+  },
+  {
+    id: 3,
+    degree: 'Secondary Education',
+    field: 'Science (PCM)',
+    institution: 'St Paul\'s Sr Sec School, Beawar ',
+    year: '2014 - 2016',
+    grade: 'CGPA: 10/10'
+  }
+]
