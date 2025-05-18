@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode,setDarkMode] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
   
   const handleThemeChange = () => {
@@ -21,17 +22,27 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   if (!mounted) {
     return null;
   }
+  
   return(
     <>
-      <header className='px-12 mx-auto p-2'>
+      <header className={`px-12 mx-auto p-2`}>
         <nav className={`flex items-center justify-between flex-wrap app__navbar`}>
+          
           {/* brand */}
           <div className="brandLogo flex items-center flex-shrink-0 mr-3 lg:mr-16">
             <Link href="/">
-              <h1 className="">BP.</h1>
+              <h1 className="">{data.shortName}</h1>
             </Link>
           </div>
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Bharat Paliwal",
-      url: "https://twitter.com/softinstaa",
+      url: "https://x.com/BharatPaliwal23",
     },
   ],
   viewport:

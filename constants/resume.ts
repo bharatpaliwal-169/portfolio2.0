@@ -138,8 +138,8 @@ export  const stackLinks = [
 export const socialLinks = {
   github : 'https://github.com/bharatpaliwal-169',
   linkedin : 'https://www.linkedin.com/in/bharatpaliwal231/',
-  twitter : 'https://twitter.com/softinstaa',
-  instagram : 'https://www.instagram.com/softinstaa/',
+  twitter : 'https://x.com/BharatPaliwal23',
+  instagram : 'https://www.instagram.com/_bharat_231/',
   gmail : 'paliwalbdevop@gmail.com'
 };
 
@@ -257,4 +257,31 @@ export const experience = [
       "I had a good experience with how we work and coordinate as a team and build projects within given deadlines. ", 
     ]
   },
+]
+
+export const education = [
+  {
+    id: 1,
+    degree: 'Bachelor of Technology (B.Tech)',
+    field: 'Electronics & Communication Engineering',
+    institution: 'The LNM Institute of Information Technology (LNMIIT)',
+    year: '2018 - 2022',
+    grade: 'CGPA: 7.0/10',
+  },
+  {
+    id: 2,
+    degree: 'Higher Secondary Education',
+    field: 'Science (PCM)',
+    institution: 'All Saints School, Ajmer',
+    year: '2016 - 2018',
+    grade: 'Percentage: 85%'
+  },
+  {
+    id: 3,
+    degree: 'Secondary Education',
+    field: 'Science (PCM)',
+    institution: 'St Paul\'s Sr Sec School, Beawar ',
+    year: '2014 - 2016',
+    grade: 'CGPA: 10/10'
+  }
 ]
