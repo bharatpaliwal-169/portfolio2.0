@@ -1,113 +1,198 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Image from 'next/image'
-import Link from 'next/link'
-import {data} from "@/constants/SiteData";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Bars3Icon,
+  MoonIcon,
+  SunIcon,
+  XMarkIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
+import { data } from "@/constants/SiteData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode,setDarkMode] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
-  
-  const handleThemeChange = () => {
-    setDarkMode(!darkMode)
-    setTheme(!darkMode ? "light" : "dark");
-  }
+  const pathname = usePathname();
+
+  const isDark = theme === "dark";
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
+
+  const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   if (!mounted) {
-    return null;
+    return (
+      <header className="navbar-shell">
+        <nav className="app__navbar navbar-bar" aria-hidden />
+      </header>
+    );
   }
-  
-  return(
-    <>
-      <header className={`px-12 mx-auto p-2`}>
-        <nav className={`flex items-center justify-between flex-wrap app__navbar`}>
-          
-          {/* brand */}
-          <div className="brandLogo flex items-center flex-shrink-0 mr-3 lg:mr-16">
-            <Link href="/">
-              <h1 className="">{data.shortName}</h1>
-            </Link>
-          </div>
 
-          {/* ham button */}
-          <div className="block lg:hidden">
+  return (
+    <header className="navbar-shell">
+      <nav
+        className={`app__navbar navbar-bar ${isScrolled ? "navbar-bar--scrolled" : ""}`}
+        aria-label="Main navigation"
+      >
+        <Link href="/" className="navbar-brand" onClick={closeMenu}>
+          <span className="navbar-brand__mark">{data.shortName}</span>
+          <span className="navbar-brand__full hidden sm:inline">{data.brandName}</span>
+        </Link>
+
+        <div className="navbar-desktop" role="menubar">
+          {data.navLinksMap.map((item) => {
+            const isActive = pathname === item._url;
+            const Icon = item.icon;
+
+            return (
+              <Link
+                key={item._url}
+                href={item._url}
+                role="menuitem"
+                className={`navbar-link ${isActive ? "navbar-link--active" : ""}`}
+              >
+                <Icon className="navbar-link__icon" aria-hidden />
+                <span className="capitalize">{item.name}</span>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="navbar-actions">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="navbar-theme-btn"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {isDark ? (
+              <SunIcon className="h-5 w-5" />
+            ) : (
+              <MoonIcon className="h-5 w-5" />
+            )}
+          </button>
+
+          <button
+            type="button"
+            className="navbar-menu-btn md:hidden"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav-panel"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            <span className={`navbar-menu-btn__icon ${isOpen ? "is-open" : ""}`}>
+              {isOpen ? (
+                <XMarkIcon className="h-6 w-6" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" />
+              )}
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      <div
+        id="mobile-nav-panel"
+        className={`navbar-mobile-overlay ${isOpen ? "navbar-mobile-overlay--open" : ""}`}
+        aria-hidden={!isOpen}
+      >
+        <button
+          type="button"
+          className="navbar-mobile-backdrop"
+          onClick={closeMenu}
+          aria-label="Close menu"
+          tabIndex={isOpen ? 0 : -1}
+        />
+
+        <div className={`navbar-mobile-panel ${isOpen ? "navbar-mobile-panel--open" : ""}`}>
+          <div className="navbar-mobile-header">
+            <p className="navbar-mobile-eyebrow">Navigate</p>
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
+              type="button"
+              className="navbar-mobile-close"
+              onClick={closeMenu}
+              aria-label="Close menu"
             >
-              <svg
-                className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-
-              <svg
-                className={`fill-current h-3 w-3 ${isOpen ? "block" : "hidden"}`}
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-              </svg>
-
+              <XMarkIcon className="h-5 w-5" />
             </button>
           </div>
 
-          {/* links */}
-          <div
-            className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
-          >
-            <div className="text-sm lg:flex-grow lg:items-center">
-              <span className="inline-block"></span>
-              {
-                data.navLinksMap.map((item,index) => {
-                  return(
-                    
-                    <Link href={item._url}  key={index}>
-                      <div className="lg:inline-flex nav-links capitalize">
-                        <item.icon className="h-[2rem] w-[2rem] mr-1" />
-                        <h1 className="">{item.name}</h1>
-                      </div>
-                    </Link>
-                  
-                  )
-                })
-              }
+          <div className="navbar-mobile-links">
+            {data.navLinksMap.map((item, index) => {
+              const isActive = pathname === item._url;
+              const Icon = item.icon;
 
-            </div>
-
-            {/* login/signup */}
-            <div className='inline-flex items-center justify-center'>
-              <button className='ms-8 rounded-full hover:shadow-lg dark:hover:shadow-lg' onClick={handleThemeChange}>
-                {!darkMode ? 
-                  <Image src="/assets/moon.svg" alt="dark" className='p-1 h-12 w-12 hover:bg-slate-600 rounded-full' width={12} height={12} />
-                  :
-                  <Image src="/assets/sun.svg" alt="light" className='p-1 h-12 w-12 hover:bg-indigo-300 rounded-full' width={12} height={12} />
-                }
-              </button>              
-            </div>
+              return (
+                <Link
+                  key={item._url}
+                  href={item._url}
+                  onClick={closeMenu}
+                  className={`navbar-mobile-link ${isActive ? "navbar-mobile-link--active" : ""}`}
+                  style={{ animationDelay: `${index * 60}ms` }}
+                >
+                  <span className="navbar-mobile-link__icon-wrap">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <span className="navbar-mobile-link__copy">
+                    <span className="navbar-mobile-link__title capitalize">{item.name}</span>
+                    <span className="navbar-mobile-link__hint">
+                      {isActive ? "Current page" : "Tap to explore"}
+                    </span>
+                  </span>
+                  <ArrowRightIcon className="navbar-mobile-link__arrow h-4 w-4" aria-hidden />
+                </Link>
+              );
+            })}
           </div>
-        </nav>
-      </header>
-    </>
-  )
-}
+
+          <div className="navbar-mobile-footer">
+            <button type="button" className="navbar-mobile-theme" onClick={toggleTheme}>
+              {isDark ? (
+                <>
+                  <SunIcon className="h-5 w-5" />
+                  <span>Light mode</span>
+                </>
+              ) : (
+                <>
+                  <MoonIcon className="h-5 w-5" />
+                  <span>Dark mode</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
 export default Navbar;

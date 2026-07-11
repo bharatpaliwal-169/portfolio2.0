@@ -1,4 +1,3 @@
-import { BriefcaseIcon } from "@heroicons/react/24/outline"; 
 export const projectList = [
   {
     title : 'Memofeed : A social media webapp',
@@ -214,7 +213,6 @@ export const experience = [
       "Rigorously enhanced application UI, improved security and performance.",
       "International Client handling, overall product management, working in coordination with multiple team.",
     ],
-    icon : BriefcaseIcon,
   },
   {
     title : "Product Development Engineer",

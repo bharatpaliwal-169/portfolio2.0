@@ -1,15 +1,6 @@
-import type { Metadata } from "next";
-import { Playfair_Display } from 'next/font/google'
+import type { Metadata, Viewport } from "next";
 import Providers from './Provider';
 import "./globals.css";
-
-
-const PlayFair = Playfair_Display({
-  weight: ['400','500','700','900'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: "Bharat | Portfolio",
@@ -17,15 +8,12 @@ export const metadata: Metadata = {
   generator: "Next.js",
   manifest: "/manifest.json",
   keywords: ["nextjs", "next14", "pwa", "next-pwa"],
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
   authors: [
     {
       name: "Bharat Paliwal",
       url: "https://x.com/BharatPaliwal23",
     },
   ],
-  viewport:
-    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
   icons: [
     { rel: "apple-touch-icon", url: "/assets/brandLogo.png" },
     { rel: "icon", url: "/assets/brandLogo.png" },
@@ -42,6 +30,14 @@ export const metadata: Metadata = {
   }
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  viewportFit: "cover",
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#06120f" }],
+};
+
 
 export default function RootLayout({
   children,
@@ -50,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={PlayFair.className}>
+      <body>
         <Providers>
           {children}
         </Providers>
