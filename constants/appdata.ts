@@ -1,9 +1,9 @@
 export const appData = {
-  heroPill : "Software & Technology Enthusiast",
+  heroPill : "Software & Technology Professional",
   heroName : "Bharat Paliwal",
 
   downloadCV : "Download CV",
-  scheduleMeeting : "Schedule a meeting",
+  scheduleMeeting : "Connect with me",
   linkedIn : "LinkedIn",
   linkedInDesp1 : "For more professional details, checkout my",
   linkedInDesp2 : "profile.",
